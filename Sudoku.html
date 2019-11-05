@@ -3,30 +3,30 @@
 <head>
     <title></title>
     <link href="sudo.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
     <body>
 	    <div id='sudoku'>
-		    <div id='banner'>
-		    </div>
 		    <div id='main'>
-		        <table>
+		        <center><table>
 		            <tr>
 		                <td>
 		                    <canvas id='canvas1' width='541' height='541'>Canvas is not supported by this browser.</canvas>
 		                    <br/><br/>
 		                    <span id="extraInfo" style='font-size:0.7em; color: #696969;'></span><br/>
 		                </td>
-		                <td style="width: 135px">
-		                    <button onclick="loadText()" title='Loads the digits from the textbox below the board in order left to right, top to bottom. Click this after entering a problem to convert them to givens'  >Load</button><br/>
-		                    <button id="btnReset" onclick="reset()" title='Clears all user entered cells. The givens are NOT cleared.'>Reset</button><br/>
-		                    <button id="btnAccept" onclick="acceptPossibles()" title='Makes all singles into values' >Accept</button><br/>
-		                    <button id="btnHint" onclick="hint()" title='Enters the answer to the currently selected cell' >Hint</button><br/>
-		                    <button id="btnUndo" onclick="undo()" title='Undoes the last user action except load, clear and reset'>Undo</button><br/>
-		                    <button id="btnSolve" onclick="solve()" title='If possible, it will solve the problem. The amount of time taken to solve is displayed below.' >Solve</button><br/><br/>
-		                    <span id="message" style="width: 130; color: Red; "></span><br/>
-		                </td>
+		                <td style="padding-right: 90px;"></td>
+		                <td id='button-div' width="136">
+						    <button onclick="loadText()" title='Loads the digits from the textbox below the board in order left to right, top to bottom. Click this after entering a problem to convert them to givens'>LOAD</button>
+						    <button id="btnReset" onclick="reset()" title='Clears all user entered cells. The givens are NOT cleared.'>RESET</button>
+						    <button id="btnAccept" onclick="acceptPossibles()" title='Makes all singles into values'>ACCEPT</button>
+						    <button id="btnHint" onclick="hint()" title='Enters the answer to the currently selected cell'>HINT</button>
+						    <button id="btnUndo" onclick="undo()" title='Undoes the last user action except load, clear and reset'>UNDO</button>
+						    <button id="btnSolve" onclick="solve()" title='If possible, it will solve the problem. The amount of time taken to solve is displayed below.'>SOLVE</button><br/><br/>
+						    <span id="message" style="width: 130; color:Red;"></span><br/>
+						</td>
 		            </tr>
-		        </table>
+		        </table></center>
 		    </div>
 		</div>
 	</body>

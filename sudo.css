@@ -1,8 +1,10 @@
 body
 {
     font-size: 0.9em;
-    font-family: verdana, arial, sans-serif;
+    font-family: Lato;
     background-color: #FAEBD7;
+    margin: 0;
+    overflow: hidden;
 }
 button
 {
@@ -11,25 +13,18 @@ button
 }
 canvas
 {
-    background-color: #fffff0;
-    padding-bottom:10px;
+    background-color: #0984e3;
     display:block;
+    font-family: Lato;
 }
 #sudoku
 {
     margin-left:auto;
     margin-right:auto;
     width: 945px;
-    height:900px;
+    height: 650px;
     background-color: #fefefe;
-    padding:10px;
-}
-#banner
-{
-    position: relative;
-    left: 0px;
-    top:0px;
-    padding: 10px;
+    padding:23px;
 }
 #help
 {
@@ -42,7 +37,6 @@ canvas
 {
     top:60px;
     padding: 10px;
-    float:left;
 }
 #big
 {
@@ -67,4 +61,26 @@ td.help li
 {
     padding-bottom: 6px;
     font-size: 0.7em;
+}
+#button-div{
+    position: relative;
+    margin:30px;
+}
+#button-div button{
+    border:none;
+    width: 140px;
+    height:45px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-family: Lato;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: white;
+    background-color: #3498db;
+    cursor: pointer;
+}
+#button-div button:hover{
+    background-color: white;
+    color: #3498db; 
 }

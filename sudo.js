@@ -550,9 +550,16 @@ function checkStatus() {
         message.innerHTML = "";
 }
 
+
 function drawGrid() {
     var context = canvas1.getContext('2d');
-    context.strokeStyle = '#808080';
+    context.fillStyle="#74b9ff ";
+    context.fillRect(180.33,0,180.33,180.33);
+    context.fillRect(0,180.33,180.33,180.33);
+    context.fillRect(360.66,180.33,180.33,180.33);
+    context.fillRect(180.33,360.66,180.33,180.33);
+
+    context.strokeStyle = '#b3e7ff';
     for (var i = 0; i <= BoardSize; i++) {
         context.beginPath();
         var thick = i % 3 == 0;
@@ -564,12 +571,13 @@ function drawGrid() {
         context.lineTo(BoardSize * CellSize + 0.5, i * CellSize + 0.5);
         context.stroke();
     }
+    
 }
 
 function drawCells() {
     var context = canvas1.getContext('2d');
 
-    context.font = "12pt Calibri";
+    context.font = "12pt Lato";
     context.textAlign = "center";
     context.textBaseline = "middle";
     var normalColor = "#aaaaaa";
@@ -614,11 +622,11 @@ function drawCells() {
     var selectCell = board1.getCell(new Location(selectRow, selectCol));
     var selectValue = selectCell.getValue();
 
-    context.font = "32pt Calibri";
+    context.font = "32pt Lato";
     context.textAlign = "center";
     context.textBaseline = "middle";
     var normalForeColor = "#191929";
-    var sameDigitForeColor = "#F91919";
+    var sameDigitForeColor = "#40407a";
     context.fillStyle = normalForeColor;
     for (var row = 0; row < BoardSize; row++)
         for (var col = 0; col < BoardSize; col++) {
@@ -628,7 +636,7 @@ function drawCells() {
             var sameDigit = cell.getValue() == selectValue && selectValue != 0;
             var value = cell.getValue();
             if (value != 0) {
-                context.fillStyle = cell.isGiven() ? "#2200aa" : "#696969";
+                context.fillStyle = cell.isGiven() ? "#ffffff" : "#ffda79";
                 if (sameDigit)
                     context.fillStyle = sameDigitForeColor;
                 context.fillText(value, x, y);
@@ -782,7 +790,7 @@ function initDigitSource() {
         context.lineTo(SourceSize * digCellSize + 0.5, i * digCellSize + 0.5);
         context.stroke();
     }
-    context.font = "24pt Calibri";
+    context.font = "24pt Lato";
     context.textAlign = "center";
     context.textBaseline = "middle";
     var normalForeColor = "#708090";
