@@ -1,3 +1,5 @@
+
+
 function relMouseCoords(event) {
     var totalOffsetX = 0;
     var totalOffsetY = 0;
@@ -267,7 +269,8 @@ Location.prototype.getSibs = function (type) {
 };
 
 function Board() {
-
+    let context = canvas1.getContext('2d');
+    context.font = "Lato";
     function MultiDimArray(rows, cols) {
         var a = new Array(rows);
         for (var i = 0; i < rows; i++) {
@@ -281,7 +284,7 @@ function Board() {
     this._digits = MultiDimArray(BoardSize, BoardSize);
     this._isSolved = false;
     this._isValid = false;
-
+    
 }
 
 Board.prototype.clone = function () {
@@ -513,8 +516,6 @@ var CellSize = 60;
 var SubCellSize = 18;
 
 var canvas1 = document.getElementById("canvas1");
-var canvas2 = document.getElementById("canvas2");
-var tbSerial = document.getElementById("tbSerial");
 var extraInfo = document.getElementById("extraInfo");
 
 var board1 = new Board();
@@ -543,14 +544,12 @@ function pushBoard() {
 function checkStatus() {
     extraInfo.innerHTML = "";
     if (!board1._isValid)
-        message.innerHTML = "*Invalid*";
+        swal('INVALID',"","error");//message.innerHTML = "*Invalid*";
     else if (board1._isSolved)
-        message.innerHTML = "*Solved*";
+        swal("SOLVED","","success");//message.innerHTML = "*Solved*";
     else
         message.innerHTML = "";
 }
-
-
 function drawGrid() {
     var context = canvas1.getContext('2d');
     context.fillStyle="#74b9ff ";
@@ -591,7 +590,7 @@ function drawCells() {
                 context.beginPath();
                 context.rect(col * CellSize + margin + 0.5, row * CellSize + margin + 0.5, CellSize - 2 * margin, CellSize - 2 * margin);
                 context.fillStyle = "#ffe4e1";
-                context.fill()
+                context.fill();
             }
         }
     context.fillStyle = "#999999";
@@ -726,12 +725,12 @@ document.onkeydown = function (ev) {
     }
 }
 
-function loadText() {
+/*function loadText() {
     var ret = board1.setString(tbSerial.value);
     updateUI();
     if (!ret)
         message.innerHTML = "String is not of length 81";
-}
+}*/
 
 
 function acceptPossibles() {
@@ -766,7 +765,8 @@ function solve() {
     extraInfo.innerHTML = "Solve took " + String(diff) + " milliseconds";
 }
 
-
+let context = canvas1.getContext('2d');
+context.font = "Lato";
 //board1.setString("7.8...3.....2.1...5.........4.....263...8.......1...9..9.6....4....7.5..........."); //very hard
 board1.setString("7.8...3.....2.1...5..7..2...4.....263.948...7...1...9..9.6....4....7.5....5......"); // medium
 updateUI();
