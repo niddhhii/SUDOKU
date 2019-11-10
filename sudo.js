@@ -1,5 +1,3 @@
-
-
 function relMouseCoords(event) {
     var totalOffsetX = 0;
     var totalOffsetY = 0;
@@ -589,7 +587,7 @@ function drawCells() {
                 var margin = 2;
                 context.beginPath();
                 context.rect(col * CellSize + margin + 0.5, row * CellSize + margin + 0.5, CellSize - 2 * margin, CellSize - 2 * margin);
-                context.fillStyle = "#ffe4e1";
+                context.fillStyle = "#cdd4ce";
                 context.fill();
             }
         }
@@ -767,8 +765,7 @@ function solve() {
 
 let context = canvas1.getContext('2d');
 context.font = "Lato";
-//board1.setString("7.8...3.....2.1...5.........4.....263...8.......1...9..9.6....4....7.5..........."); //very hard
-board1.setString("7.8...3.....2.1...5..7..2...4.....263.948...7...1...9..9.6....4....7.5....5......"); // medium
+board1.setString(".....6..1.87..5..........823..1.4..6..43.8.....95..43...6......9....125.2.37.9...");
 updateUI();
 var digCellSize = 54;
 
