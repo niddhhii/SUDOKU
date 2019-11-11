@@ -13,14 +13,15 @@
 		        	<table>
 		            <tr>
 		            	<td id="btn-div">		            		
-		            		<button id="btnNew" onclick="">NEW GAME</button><br>
+		            		<!-- <button id="btnNew" onclick="">NEW GAME</button><br> -->
 		            		<div id="mode">MODE OF DIFFICULTY:</div><br>
-		            		<select>
+		            		<select id="mode-type" onclick="mode()">
 							  <option value="beginner">BEGINNER</option>
 							  <option value="easy">EASY</option>
 							  <option value="medium">MEDIUM</option>
 							  <option value="difficult">DIFFICULT</option>
-							</select>
+							</select><br><br><br>
+							<span id="message" style="width: 130; position: absolute; color:Red;"></span><br/>
 		            	</td>
 		                <td>
 		                    <canvas id='canvas1' width='541' height='541'>Canvas is not supported by this browser.</canvas>
@@ -35,7 +36,6 @@
 						    <button id="btnHint" onclick="hint()" title='Enters the answer to the currently selected cell'>HINT</button>
 						    <button id="btnUndo" onclick="undo()" title='Undoes the last user action except load, clear and reset'>UNDO</button>
 						    <button id="btnSolve" onclick="solve()" title='If possible, it will solve the problem. The amount of time taken to solve is displayed below.'>SOLVE</button><br/><br/>
-						    <span id="message" style="width: 130; color:Red;"></span><br/>
 						</td>
 		            </tr>
 		        </table>

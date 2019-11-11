@@ -550,13 +550,13 @@ function checkStatus() {
 }
 function drawGrid() {
     var context = canvas1.getContext('2d');
-    context.fillStyle="#74b9ff ";
+    context.fillStyle="#ffb7a1";
     context.fillRect(180.33,0,180.33,180.33);
     context.fillRect(0,180.33,180.33,180.33);
     context.fillRect(360.66,180.33,180.33,180.33);
     context.fillRect(180.33,360.66,180.33,180.33);
 
-    context.strokeStyle = '#b3e7ff';
+    context.strokeStyle = 'black';
     for (var i = 0; i <= BoardSize; i++) {
         context.beginPath();
         var thick = i % 3 == 0;
@@ -623,7 +623,7 @@ function drawCells() {
     context.textAlign = "center";
     context.textBaseline = "middle";
     var normalForeColor = "#191929";
-    var sameDigitForeColor = "#40407a";
+    var sameDigitForeColor = "#a61707";
     context.fillStyle = normalForeColor;
     for (var row = 0; row < BoardSize; row++)
         for (var col = 0; col < BoardSize; col++) {
@@ -633,7 +633,7 @@ function drawCells() {
             var sameDigit = cell.getValue() == selectValue && selectValue != 0;
             var value = cell.getValue();
             if (value != 0) {
-                context.fillStyle = cell.isGiven() ? "#ffffff" : "#ffda79";
+                context.fillStyle = cell.isGiven() ? "#ffffff" : "#0c61c9";
                 if (sameDigit)
                     context.fillStyle = sameDigitForeColor;
                 context.fillText(value, x, y);
@@ -684,7 +684,7 @@ function setDigitInCell(digit) {
     if (cell.isGiven())
         return;
     if (digit != 0 && !cell.isAllowed(digit)) {
-        message.innerHTML = "Digit not allowed";
+        message.innerHTML = "*DIGIT NOT ALLOWED";
         return;
     }
     pushBoard();
@@ -764,8 +764,22 @@ function solve() {
 }
 
 let context = canvas1.getContext('2d');
-context.font = "Lato";
-board1.setString(".....6..1.87..5..........823..1.4..6..43.8.....95..43...6......9....125.2.37.9...");
+context.font = "Lato"; 
+board1.setString("245..76....6..14........729...594..7.516.2.8....71.....2..4.3...68.7...51...538..");//beginner 
+function mode(){
+    var difficulty = document.getElementById("mode-type").value;
+    if(difficulty=="beginner"){
+        board1.setString("245..76....6..14........729...594..7.516.2.8....71.....2..4.3...68.7...51...538..");//beginner  
+    }else if(difficulty=="easy"){
+        board1.setString("17...9.....87..42......439761........29...54........184869......51..36.....6...59");//easy
+    }else if(difficulty=="medium"){
+        board1.setString(".....6..1.87..5..........823..1.4..6..43.8.....95..43...6......9....125.2.37.9...");//medium
+    }else{
+        board1.setString("9.....176.7.....5.2...63....9..3..1....2....7..2.4.53.6..3.......5...46.1.8......");//difficult
+    }
+    updateUI();
+}
+
 updateUI();
 var digCellSize = 54;
 
