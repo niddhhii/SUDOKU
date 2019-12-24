@@ -540,13 +540,10 @@ function pushBoard() {
 }
 
 function checkStatus() {
-    extraInfo.innerHTML = "";
     if (!board1._isValid)
         swal('INVALID',"","error");//message.innerHTML = "*Invalid*";
     else if (board1._isSolved)
         swal("SOLVED","","success");//message.innerHTML = "*Solved*";
-    else
-        message.innerHTML = "";
 }
 function drawGrid() {
     var context = canvas1.getContext('2d');
@@ -650,7 +647,7 @@ function drawCanvas() {
 function updateUI() {
     drawCanvas();
     checkStatus();
-    tbSerial.value = board1.toString();
+    // tbSerial.value = board1.toString();
 }
 
 function readOptions() {
@@ -755,12 +752,12 @@ function reset() {
 
 function solve() {
     pushBoard();
-    var n = new Date();
-    var s = n.getTime();
+    // var n = new Date();
+    // var s = n.getTime();
     board1.trySolve(Location.empty, 0);
-    var diff = new Date().getTime() - s;
+    // var diff = new Date().getTime() - s;
     updateUI();
-    extraInfo.innerHTML = "Solve took " + String(diff) + " milliseconds";
+    // extraInfo.innerHTML = "Solve took " + String(diff) + " milliseconds";
 }
 
 let context = canvas1.getContext('2d');
@@ -783,8 +780,8 @@ function mode(){
 updateUI();
 var digCellSize = 54;
 
-function initDigitSource() {
-    var context = canvas2.getContext('2d');
+/*function initDigitSource() {
+    // var context = canvas2.getContext('2d');
     context.strokeStyle = '#808080';
     var SourceSize = BoardSize + 1;
     for (var i = 0; i <= SourceSize; i++) {
@@ -815,14 +812,14 @@ function initDigitSource() {
     }
 
 }
-initDigitSource();
+initDigitSource();*/
 
-canvas2.onmousedown = function canvasMouseDown(ev) {
-    var x = ev.pageX - this.offsetLeft;
-    var y = ev.pageY - this.offsetTop;
-    var coords = this.relMouseCoords(ev);
-    var dig = Math.floor(coords.x / digCellSize) + 1;
-    if (dig == 10)
-        dig = 0;
-    setDigitInCell(dig);
-}
+// canvas2.onmousedown = function canvasMouseDown(ev) {
+//     var x = ev.pageX - this.offsetLeft;
+//     var y = ev.pageY - this.offsetTop;
+//     var coords = this.relMouseCoords(ev);
+//     var dig = Math.floor(coords.x / digCellSize) + 1;
+//     if (dig == 10)
+//         dig = 0;
+//     setDigitInCell(dig);
+// }

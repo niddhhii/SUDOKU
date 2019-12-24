@@ -5,7 +5,7 @@
     <link href="sudo.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
-    <body>
+    <body onload="mode()">
 	    <div id='sudoku'>
 		    <div id='main'>
 		        <center>
@@ -13,29 +13,25 @@
 		        	<table>
 		            <tr>
 		            	<td id="btn-div">		            		
-		            		<!-- <button id="btnNew" onclick="">NEW GAME</button><br> -->
 		            		<div id="mode">MODE OF DIFFICULTY:</div><br>
-		            		<select id="mode-type" onclick="mode()">
-							  <option value="beginner">BEGINNER</option>
-							  <option value="easy">EASY</option>
-							  <option value="medium">MEDIUM</option>
-							  <option value="difficult">DIFFICULT</option>
+		            		<select id="mode-type" onclick="mode()">	
+									<option value="beginner">BEGINNER</option>
+									<option value="easy">EASY</option>
+									<option value="medium">MEDIUM</option>
+									<option value="difficult">DIFFICULT</option>
 							</select><br><br><br>
 							<span id="message" style="width: 130; position: absolute; color:Red;"></span><br/>
 		            	</td>
 		                <td>
 		                    <canvas id='canvas1' width='541' height='541'>Canvas is not supported by this browser.</canvas>
 		                    <br/><br/>
-		                    <!-- <span id="extraInfo" style='font-size:0.7em; color: #696969;'></span><br/> -->
 		                </td>
 		                <td style="padding-right: 40px;"></td>
 		                <td id='button-div' width="136">
-						    <!-- <button onclick="loadText()" title='Loads the digits from the textbox below the board in order left to right, top to bottom. Click this after entering a problem to convert them to givens'>LOAD</button> -->
 						    <button id="btnReset" onclick="reset()" title='Clears all user entered cells. The givens are NOT cleared.'>RESET</button>
-						    <!-- <button id="btnAccept" onclick="acceptPossibles()" title='Makes all singles into values'>ACCEPT</button> -->
 						    <button id="btnHint" onclick="hint()" title='Enters the answer to the currently selected cell'>HINT</button>
 						    <button id="btnUndo" onclick="undo()" title='Undoes the last user action except load, clear and reset'>UNDO</button>
-						    <button id="btnSolve" onclick="solve()" title='If possible, it will solve the problem. The amount of time taken to solve is displayed below.'>SOLVE</button><br/><br/>
+						    <button id="btnSolve" onclick="solve()" title='If possible, it will solve the problem.'>SOLVE</button><br/><br/>
 						</td>
 		            </tr>
 		        </table>
